@@ -1,0 +1,117 @@
+:root {
+    /* Font-families */
+    --ff-primary: 'Roboto', sans-serif;
+    --ff-secondary: serif;
+
+    /* Font-sizes */
+    --fs-900: 9.375rem;
+    --fs-800: 6.25rem;
+    --fs-750: 4.5rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-450: 1.5rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+
+    /* Colors */
+    --bg-primary: rgb(224, 224, 224);
+    --bg-secondary: rgb(226, 232, 240);
+    --font-color: rgb(137, 137, 137);
+    --font-title: rgb(0, 0, 0);
+    --accent: rgb(25, 146, 212);
+    --accent-lighter: rgb(240, 180, 41);
+}
+
+/* --------------------  */
+/* Reset                 */
+/* --------------------  */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0;
+}
+
+/* Utils classes */
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.flex__centered {
+    justify-content: center;
+    align-content: center;
+}
+
+.hidden{
+    display: none;
+}
+
+/* Header */
+
+header {
+    background-color: var(--bg-primary);
+    padding: 12px 0px;
+
+    h1 {
+        font-size: var(--fs-700);
+    }
+}
+
+/* Main */
+.book__card {
+
+}
+
+
+/* FOOTER */
+.footer {
+    background-color: var(--bg-primary);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    padding: 10px;
+    font-size: 20px;
+  }
+  
+  #fa-github {
+    color: var(--primary-dark);
+    font-size: 32px;
+    transition: transform 0.3s ease-in-out;
+    vertical-align: middle;
+  }
+  
+  #fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+  }
