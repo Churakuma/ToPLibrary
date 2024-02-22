@@ -16,25 +16,32 @@
     
     <main>
         <div class="library__container">
-            <button>New Book</button>
+            <button class="add__book__button" id="add__book__button">Add Book</button>
         </div>
     </main>
 
-    <footer class="footer">
-        <p>
-            Copyright ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script>
-            Churakuma
-        </p>
-        <a href="https://github.com/Churakuma" target="_blank">
-            <ion-icon id="fa-github" name="logo-github"></ion-icon>
-        </a>
-    </footer>
+    <div class="modal__background" id="my__modal">
+        <div class="add__book__card">
+            <span class="close">&times;</span>
+            <div class="add__book__content grid">
+                <h2>Add Book</h2>
+                <input type="text" placeholder="   Title">
+                <input type="text" placeholder="   Author">
+                <input type="text" placeholder="   Pages">
+                <div class="switch__container">
+                    <p>Complete</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <button type="submit" class="add__book__submit" id="submit__button">+</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer></footer>
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

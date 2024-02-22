@@ -16,12 +16,12 @@
     --fs-200: 0.875rem;
 
     /* Colors */
-    --bg-primary: rgb(224, 224, 224);
-    --bg-secondary: rgb(226, 232, 240);
-    --font-color: rgb(137, 137, 137);
-    --font-title: rgb(0, 0, 0);
-    --accent: rgb(25, 146, 212);
-    --accent-lighter: rgb(240, 180, 41);
+    --bg-primary: rgb(246, 247, 250);
+    --clr-primary: rgb(73, 77, 198);
+    --clr-secondary: rgb(129, 132, 237);
+    --clr-accent: rgb(77, 82, 252);
+    --font-light: rgb(16, 16, 19);
+    --font-dark: rgb(236, 236, 239);
 }
 
 /* --------------------  */
@@ -73,45 +73,185 @@ picture {
     display: none;
 }
 
+/* --------------------  */
+/* Atoms                 */
+/* --------------------  */
+
+/* Submit Button */
+
+/* Buttons */
+
+.add__book__submit {
+    width: fit-content;
+    height: fit-content;
+}
+
+.add__book__button {
+    height: 40px;
+    width: 150px;
+}
+
+.add__book__button, .add__book__submit {
+    padding: 12.5px 30px;
+    margin: 20px;
+    border: 0;
+    border-radius: 100px;
+    background-color: var(--clr-primary);
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+
+    &:hover {
+        background-color: var(--clr-secondary);
+        box-shadow: 0 0 20px #6fc5ff50;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    &:active {
+        background-color: var(--clr-accent);
+        transition: all 0.25s;
+        -webkit-transition: all 0.25s;
+        box-shadow: none;
+        transform: scale(0.98);
+    }
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    float: right;
+    right: 20px;
+    top: 10px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+/* Add Book Modal */
+.modal__background {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Book Card */
+.add__book__card {
+    background-color: var(--bg-primary);
+    border-radius: 10px;
+    width: 360px;
+    height: 360px;
+}
+
+.add__book__content {
+    gap: 10px;
+    padding: 16px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+
+    input {
+        border-radius: 10px;
+        border: 1px solid;
+        width: 75%;
+        height: 24px;
+        margin: 4px 0px;
+    }
+
+    p {
+        margin: 0px 0px 6px 0px;
+    }
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+  
+  /* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+  /* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: green;
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px green;
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+  
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
 /* Header */
 
 header {
-    background-color: var(--bg-primary);
+    background-color: var(--clr-primary);
     padding: 12px 0px;
 
     h1 {
         font-size: var(--fs-700);
+        color: var(--font-dark);
     }
 }
-
-/* Main */
-.book__card {
-
-}
-
-
-/* FOOTER */
-.footer {
-    background-color: var(--bg-primary);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 10px;
-    padding: 10px;
-    font-size: 20px;
-  }
-  
-  #fa-github {
-    color: var(--primary-dark);
-    font-size: 32px;
-    transition: transform 0.3s ease-in-out;
-    vertical-align: middle;
-  }
-  
-  #fa-github:hover {
-    transform: rotate(360deg) scale(1.2);
-  }
