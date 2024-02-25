@@ -181,7 +181,6 @@ picture {
     }
 }
 
-
 /* The switch - the box around the slider */
 .switch {
     position: relative;
@@ -268,6 +267,9 @@ header {
 
 .book__card__container {
     background-color: var(--bg-secondary);
+    padding: 8px 4px 8px 4px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
     width: 240px;
     height: 240px;
 }
@@ -279,5 +281,24 @@ header {
         font-size: large;
         font-weight: 500;
         margin: 15px 4px 0px 4px;
+    }
+
+    & p:first-of-type {
+        font-size: larger;
+        font-weight: bolder;
+    }
+
+    & button {
+        margin: 16px 4px 8px 4px;
+        border: none;
+        width: 64px;
+        height: 32px;
+        border-radius: 100px;
+    }
+
+    & button:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: all 0.5s;
     }
 }

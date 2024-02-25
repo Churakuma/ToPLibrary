@@ -4,23 +4,17 @@ function Book(title, author, pages, read) {
     this.pages = pages;
     this.read = read;
     this.info = function () {
-        let readStatus = "";
-        if (this.read) {
-            readStatus = "Completed";
-        } else {
-            readStatus = "Incomplete";
-        }
-        return readStatus;
+        return this.read ? "Completed" : "Incomplete";
     };
 }
 
 const myLibrary = [
-    new Book("Prince of Fools", "Mark Lawrence", 245, false),
-    new Book("Harry Potter and the Philosopher's Stone", "J.K Rowling", 479, true),
-    new Book("Another Book", "Another Author", 300, true),
-    new Book("Another Book", "Another Author", 300, true),
-    new Book("Another Book", "Another Author", 300, true),
-    new Book("Another Book", "Another Author", 300, true),
+    new Book("To Kill a Mockingbird", "Harper Lee", 281, true),
+    new Book("1984", "George Orwell", 328, false),
+    new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, true),
+    new Book("Pride and Prejudice", "Jane Austen", 279, false),
+    new Book("The Catcher in the Rye", "J.D. Salinger", 224, true),
+    new Book("The Hobbit", "J.R.R. Tolkien", 310, true)
 ];
 
 const displayBooks = () => {
@@ -32,7 +26,7 @@ const displayBooks = () => {
     for (const book of myLibrary) {
         const bookCard = document.createElement('div');
         bookCard.classList.add('book__card');
-        bookCard.setAttribute('data-index', `${indexCounter}`)
+        bookCard.setAttribute('data-index', `${indexCounter}`);
         bookCard.innerHTML = `
             <div class="book__card__container">
                 <div class="book__card__content">
@@ -47,7 +41,7 @@ const displayBooks = () => {
                 </div>
             </div>
         `;
-        booksContainer.appendChild(bookCard)
+        booksContainer.appendChild(bookCard);
         indexCounter++;
     }
 };
@@ -62,7 +56,7 @@ const readButtons = document.querySelectorAll('.read__button');
 const booksContainer = document.getElementById('books__container');
 const submitNewBookButton = document.getElementById('submit__button');
 
-addBookButton.onclick = function() {
+addBookButton.onclick = () => {
     modal.style.display = 'flex';
 };
 
@@ -97,23 +91,21 @@ const getNewBook = () => {
     closeModal();
 }
 
-function closeModal() {
+const closeModal = () => {
     modal.style.display = 'none';
 };
 
-span.onclick = function() {
-    closeModal();
-};
+span.onclick = closeModal;
 
 // If user clicks outside of modal, close the modal
-window.onclick = function(event) {
+window.onclick = (event) => {
     if (event.target == modal) {
         closeModal();
     };
 };
 
 // Delete and read book functionality
-booksContainer.addEventListener('click', function(event) {
+booksContainer.addEventListener('click', (event) => {
     const target = event.target;
     if (target.classList.contains('delete__button')) {
         const card = target.closest('.book__card');
