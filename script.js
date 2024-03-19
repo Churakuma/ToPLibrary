@@ -55,7 +55,68 @@ const deleteButtons = document.querySelectorAll('.delete__button');
 const readButtons = document.querySelectorAll('.read__button');
 const booksContainer = document.getElementById('books__container');
 const submitNewBookButton = document.getElementById('submit__button');
+const title = document.getElementById('title');
+const titleError = document.getElementById('title__error');
+const author = document.getElementById('author');
+const authorError = document.getElementById('author__error');
+const pages = document.getElementById('pages');
+const pagesError = document.getElementById('pages__error');
+const read = document.getElementById('read');
 
+title.addEventListener('input', () => {
+    if (title.validity.valid) {
+        titleError.textContent = '';
+        titleError.className = 'valid';
+    } else {
+        showError();
+    }
+});
+
+author.addEventListener('input', () => {
+    if (author.validity.valid) {
+        authorError.textContent = '';
+        authorError.className = 'valid';
+    } else {
+        showError();
+    }
+});
+
+pages.addEventListener('input', () => {
+    if (pages.validity.valid) {
+        pagesError.textContent = '';
+        pagesError.className = 'valid';
+    } else {
+        showError();
+    }
+});
+
+function showError() {
+    console.log('displaying errors');
+    if (pages.validity.valueMissing) {
+        pagesError.textContent = "Please enter the number of pages";
+        pagesError.className = 'error';
+    } else if (pages.validity.rangeOverflow || pages.validity.rangeUnderflow) {
+        pagesError.textContent = "Please enter pages within a range of 1 - 10,000";
+        pagesError.className = 'error';
+    }
+
+    if (author.validity.valueMissing) {
+        authorError.textContent = "Please enter the Author's name";
+        authorError.className = 'error';
+    } else if (author.validity.rangeOverflow) {
+        authorError.textContent = "Please enter an Author name under 100 characers long";
+        authorError.className = 'error';
+    }
+
+    if (title.validity.valueMissing) {
+        titleError.textContent = "Please enter a Title";
+        titleError.className = 'error';
+    } else if (title.validity.rangeOverflow) {
+        titleError.textContent = "Please enter a Title under 100 characers long";
+        titleError.className = 'error';
+    }
+}
+    
 addBookButton.onclick = () => {
     modal.style.display = 'flex';
 };
@@ -66,16 +127,15 @@ function addBookToLibrary(book) {
 
 submitNewBookButton.addEventListener('click', (e) => {
     e.preventDefault();
-    getNewBook();
-    displayBooks();
+    if (title.validity.valid && author.validity.valid && pages.validity.valid) {
+        getNewBook();
+        displayBooks();
+    } else {
+        showError();
+    }
 });
 
 const getNewBook = () => {
-    const title = document.getElementById('title');
-    const author = document.getElementById('author');
-    const pages = document.getElementById('pages');
-    const read = document.getElementById('read');
-
     addBookToLibrary(new Book(
         title.value,
         author.value,
