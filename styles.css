@@ -158,7 +158,7 @@ picture {
     background-color: var(--bg-primary);
     border-radius: 10px;
     width: 360px;
-    height: 400px;
+    height: fit-content;
 }
 
 .add__book__content {
@@ -178,6 +178,11 @@ picture {
 
     p {
         margin: 0px 0px 6px 0px;
+    }
+
+    .error {
+        color: red;
+        font-weight: bold;
     }
 }
 
