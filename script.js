@@ -98,7 +98,7 @@ function showError() {
     } else if (pages.validity.rangeOverflow || pages.validity.rangeUnderflow) {
         pagesError.textContent = "Please enter pages within a range of 1 - 10,000";
         pagesError.className = 'error';
-    }
+    } 
 
     if (author.validity.valueMissing) {
         authorError.textContent = "Please enter the Author's name";
